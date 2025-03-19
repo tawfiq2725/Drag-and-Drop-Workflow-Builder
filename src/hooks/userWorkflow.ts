@@ -66,7 +66,7 @@ export const useWorkflow = () => {
 
   const createNode = useCallback(
     (
-      type: "start" | "process" | "decision",
+      type: "start" | "process" | "decision" | "result",
       position: { x: number; y: number }
     ) => {
       const newNode: Node<NodeData> = {

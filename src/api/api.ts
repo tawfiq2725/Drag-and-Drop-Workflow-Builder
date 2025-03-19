@@ -1,7 +1,6 @@
 import { Node, Edge } from "reactflow";
 import { NodeData } from "../store/slice/types";
 
-// Mock API implementation using localStorage
 const WORKFLOW_STORAGE_KEY = "workflow-builder-data";
 
 export const saveWorkflow = async ({

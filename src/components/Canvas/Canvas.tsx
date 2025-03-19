@@ -14,12 +14,14 @@ import { useNodeSelection } from "../../hooks/userNode";
 import StartNode from "../Nodes/startNode";
 import ProcessNode from "../Nodes/processNode";
 import DecisionNode from "../Nodes/decisionNode";
+import ResultNode from "../Nodes/resultNode";
 import { NODE_TYPES } from "../../types/node";
 
 const nodeTypes = {
   [NODE_TYPES.start]: StartNode,
   [NODE_TYPES.process]: ProcessNode,
   [NODE_TYPES.decision]: DecisionNode,
+  [NODE_TYPES.result]: ResultNode,
 };
 
 const Canvas: React.FC = () => {
@@ -50,7 +52,8 @@ const Canvas: React.FC = () => {
       const type = event.dataTransfer.getData("application/reactflow") as
         | "start"
         | "process"
-        | "decision";
+        | "decision"
+        | "result";
 
       if (!type) return;
 
@@ -109,6 +112,8 @@ const Canvas: React.FC = () => {
                 return "#3b82f6";
               case NODE_TYPES.decision:
                 return "#eab308";
+              case NODE_TYPES.result:
+                return "#ef4444";
               default:
                 return "#71717a";
             }

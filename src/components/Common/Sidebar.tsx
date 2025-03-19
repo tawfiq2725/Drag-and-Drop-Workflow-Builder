@@ -5,7 +5,9 @@ import { useWorkflow } from "../../hooks/userWorkflow";
 const Sidebar: React.FC = () => {
   const { createNode } = useWorkflow();
 
-  const handleCreateNode = (nodeType: "start" | "process" | "decision") => {
+  const handleCreateNode = (
+    nodeType: "start" | "process" | "decision" | "result"
+  ) => {
     createNode(nodeType, { x: 100, y: 100 });
   };
 
@@ -74,6 +76,25 @@ const Sidebar: React.FC = () => {
             <button
               onClick={() => handleCreateNode("decision")}
               className="px-2 py-1 bg-yellow-500 text-white rounded-md text-sm hover:bg-yellow-600"
+            >
+              Create
+            </button>
+          </div>
+
+          <div
+            className="bg-red-100 border-2 border-red-500 rounded-lg p-3 flex items-center justify-between text-red-700 font-medium cursor-move"
+            draggable
+            onDragStart={(e) => onDragStart(e, "start")}
+          >
+            <div className="flex items-center">
+              <div className="mr-2 bg-red-500 rounded-full w-5 h-5 flex items-center justify-center text-white text-xs">
+                R
+              </div>
+              Result Node
+            </div>
+            <button
+              onClick={() => handleCreateNode("result")}
+              className="px-2 py-1 bg-red-500 text-white rounded-md text-sm hover:bg-red-600"
             >
               Create
             </button>

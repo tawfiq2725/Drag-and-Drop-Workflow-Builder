@@ -3,7 +3,7 @@ import { Node, Edge } from "reactflow";
 export interface NodeData {
   label: string;
   description?: string;
-  type: "start" | "process" | "decision";
+  type: "start" | "process" | "decision" | "result";
   parameters?: Record<string, any>;
 }
 
