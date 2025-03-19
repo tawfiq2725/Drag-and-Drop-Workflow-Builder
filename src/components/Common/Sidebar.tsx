@@ -13,7 +13,7 @@ const Sidebar: React.FC = () => {
 
   const onDragStart = (
     event: React.DragEvent,
-    nodeType: "start" | "process" | "decision"
+    nodeType: "start" | "process" | "decision" | "result"
   ) => {
     event.dataTransfer.setData("application/reactflow", nodeType);
     event.dataTransfer.effectAllowed = "move";
@@ -84,7 +84,7 @@ const Sidebar: React.FC = () => {
           <div
             className="bg-red-100 border-2 border-red-500 rounded-lg p-3 flex items-center justify-between text-red-700 font-medium cursor-move"
             draggable
-            onDragStart={(e) => onDragStart(e, "start")}
+            onDragStart={(e) => onDragStart(e, "result")}
           >
             <div className="flex items-center">
               <div className="mr-2 bg-red-500 rounded-full w-5 h-5 flex items-center justify-center text-white text-xs">
